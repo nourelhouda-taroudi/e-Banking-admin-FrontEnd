@@ -26,4 +26,7 @@ export class AgentService {
   public deleteAgent(agentID:number):Observable<void>{
     return this.http.delete<void>(`${this.apiServiceUrl}/Agent/deleteagent/${agentID}`)
   }
+  public createAgent(agent:Agent):Observable<Agent>{
+    return this.http.post<Agent>(`${this.apiServiceUrl}/Agent/createagent`,agent)
+}
 }

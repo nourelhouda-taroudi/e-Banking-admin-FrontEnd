@@ -1,0 +1,72 @@
+<div class="container">
+<form [formGroup]="form">
+    <fieldset class="mb-5 mt-3 card p-3 ">
+      <legend >Information Personnel</legend>
+      <div class="border border-1 border-primary mb-2" style="width: 20%;"></div>
+      <div class="form-group my-2">
+        <label for="Nom">Nom * : </label>
+        <input type="text" formControlName="lastName" class="form-control" id="exampleInputNOM" aria-describedby="emailHelp" placeholder="Entrer Nom">
+      </div>
+      <div class="form-group my-2">
+        <label for="prenom">Prenom * : </label>
+        <input type="text" formControlName="firstName" class="form-control" id="prenom" aria-describedby="emailHelp" placeholder="Entrer Prenom">
+      </div>
+      <div class="form-group my-2">
+        <label for="identity">Pièce d'identité * :</label>
+        <select formControlName="typeIdentity" class="form-select" id="identity">
+          <option value="CIN">C.I.N</option>
+          <option value="PASSPORT">Passport</option>
+          <option value="VISA" >VISA</option>
+        </select>
+      </div>
+      <div class="form-group my-2">
+        <label for="numberIdt">Numéro pièce d'identité * : </label>
+        <input type="text" formControlName="identity" class="form-control" id="numberIdt" aria-describedby="emailHelp" placeholder="Entrer Numéro d'identité">
+      </div>
+      <div class="form-group my-2">
+        <label for="Birthday">Date de Naissance * : </label>
+        <input type="date" formControlName="birthday" class="form-control" id="Birthday" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group my-2">
+        <label for="adress">Adresse * : </label>
+        <input type="text" formControlName="adress" class="form-control" id="adress" aria-describedby="emailHelp" placeholder="Entrer Adresse">
+      </div>
+      <div class="form-group my-2">
+        <label for="Email">Email * :</label>
+        <input type="email" formControlName="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Entrer email">
+        </div>
+        <div class="form-group my-2">
+            <label for="EmailValidation">Confirmation Email</label>
+            <input type="email" formControlName="emailValidation" class="form-control" id="EmailValidation" aria-describedby="emailHelp" placeholder="Retaper email ">
+          </div>
+          <div class="form-group my-2">
+            <label for="phone">Numéro de téléphone * : </label>
+            <input type="number" formControlName="phone" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Entrer Numéro de téléphone">
+          </div>
+          <div class="form-group my-2">
+            <label for="matricule">N° d'immatriculion au registre de commerce * : </label>
+            <input type="number" formControlName="matricule" class="form-control" id="matricule" aria-describedby="emailHelp" placeholder="Entrer N° d'immatriculion">
+          </div>
+          <div class="form-group my-2">
+            <label for="patente">Numéro de patente * : </label>
+            <input type="number" formControlName="patente" class="form-control" id="patente" aria-describedby="emailHelp" placeholder="Entrer Numéro de patente">
+          </div>
+    </fieldset>
+    <fieldset class="mb-5 mt-3 card p-3">
+        <legend>Piéces jointes</legend>
+        <div class="border border-1 border-primary mb-2" style="width: 20%;"></div>
+        <div class="form-group my-2">
+            <label for="description">Description * : </label>
+            <input type="text" formControlName="description" class="form-control" id="description" aria-describedby="emailHelp" placeholder="Entrer Description">
+          </div>
+          <div class="form-group my-2">
+            <label for="file" class="form-label">Fichier * :</label>
+            <input class="form-control" formControlName="file" type="file" id="file">
+          </div>
+    </fieldset>
+    <div class="my-2 float-end">
+        <button type="submit" class="btn btn-success me-3">Envoyer</button>
+        <button routerLink="/" class="btn btn-warning">Annuler</button>
+      </div>
+  </form>
+</div>
