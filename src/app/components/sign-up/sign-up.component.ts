@@ -9,7 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  isSelected=true;
+  c=1;
   form:FormGroup=new FormGroup({
     firstName:new FormControl(null,[Validators.required]),
     lastName:new FormControl(null,[Validators.required]),
@@ -22,13 +23,24 @@ export class SignUpComponent implements OnInit {
     phone:new FormControl(null,[Validators.required]),
     matricule:new FormControl(null,[Validators.required]),
     patente:new FormControl(null,[Validators.required]),
-    description:new FormControl(null,[Validators.required]),
-    file:new FormControl(null,[Validators.required])
+  });
+  fileForm:FormGroup=new FormGroup({
+    description0:new FormControl(null,[Validators.required]),
+    file0:new FormControl(null,[Validators.required])
   })
 
   constructor(private readonly agentService:AgentService) { }
 
   ngOnInit(): void {
+  }
+  addFile(){
+    this.fileForm.addControl(`description${this.c}`, new FormControl('', Validators.required))
+    this.fileForm.addControl(`file${this.c}`, new FormControl('', Validators.required))
+    this.c++;
+  }
+  // TODO : Delete file from html DOM
+  counter() {
+    return new Array(this.c);
   }
   createAgent(){
     const {firstName,
