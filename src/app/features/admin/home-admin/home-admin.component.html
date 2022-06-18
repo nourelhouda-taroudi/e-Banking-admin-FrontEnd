@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <span class="navbar-brand text-light" style="width: 250px">
+      {{ user }}
+    </span>
+    <!-- <a class="navbar-brand text-light" href="#">Agents</a> -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../create-agent"
+            >Add Agent</a
+          >
+          <!-- <button type="button" class="btn  btn-sm btn-radius btn-outline-dark" routerLink="create-agent">addAgent</button> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Others
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            <li><a class="dropdown-item">Change Password</a></li>
+          </ul>
+        </li>
+      </ul>
+      <app-search (searchTextChanged)="onSearchTextEntered($event)">
+      </app-search>
+    </div>
+  </div>
+</nav>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="div">
+  <ng-container class="d-flex" *ngFor="let agent of agents">
+    <div
+      class="card m-b-20 col-md-6 d-flex col-xl-3 shadow"
+      *ngIf="
+        searchText === '' ||
+        agent.username.toLocaleLowerCase().includes(searchText)
+      "
+    >
+      <div class="card-body row">
+        <div class="col-6">
+          <a href=""
+            ><img
+              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+              alt=""
+              class="img-fluid rounded-circle w-60"
+          /></a>
+        </div>
+        <div class="col-6 card-title align-self-center mb-0">
+          <p class="m-0">{{ agent.username }}</p>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="fa fa-envelope float-right"></i> Email : <br />
+          <a href="#">{{ agent.email }}</a>
+        </li>
+        <li class="list-group-item">
+          <i class="fa fa-phone float-right"></i>Phone : {{ agent.phoneNumber }}
+        </li>
+      </ul>
+      <div class="card-body">
+        <div class="button">
+          <button (click)="editeAgent(agent)" class="btn btn-primary m-1">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <a (click)="deletAgent(agent.id)" class="btn btn-danger m-1"
+            ><i class="fa fa-times text-light" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

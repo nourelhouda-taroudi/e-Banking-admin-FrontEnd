@@ -1,0 +1,7 @@
+.div{
+    border-width: 1px;width: 700px;height: 700px;  position: absolute;top:60%;left: 50%;transform: translate(-50% , -50%);
+}
+.text{
+    text-align: center;margin-bottom:20px ;
+    font-family:  "Arial Black", Arial, Verdana, sans-serif;
+}

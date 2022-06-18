@@ -1,0 +1,246 @@
+<div class="container">
+  <form [formGroup]="form">
+    <fieldset class="mt-2 card shadow p-3 mb-5 bg-body rounded">
+      <legend>Information Personnel</legend>
+      <div class="border border-1 border-primary mb-2" style="width: 20%"></div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="prenom">Nom d'utilisateur * : </label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control mt-2"
+            id="prenom"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Prenom"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('username', 'required')"
+            >Nom d'utilisateur est obligatoire</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="identity">Pièce d'identité * :</label>
+          <select
+            formControlName="typeIdentity"
+            class="form-select mt-2"
+            id="identity"
+          >
+            <option value="" disabled [selected]="isSelected">
+              Pièce d'identit
+            </option>
+            <option value="CIN">C.I.N</option>
+            <option value="PASSPORT">Passport</option>
+            <option value="VISA">VISA</option>
+          </select>
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('typeIdentity', 'required')"
+            >Pièce d'identité</small
+          >
+        </div>
+        <div class="form-group my-2 col-md-6">
+          <label for="numberIdt">Numéro pièce d'identité * : </label>
+          <input
+            type="text"
+            formControlName="identity"
+            class="form-control mt-2"
+            id="numberIdt"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Numéro d'identité"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('identity', 'required')"
+            >Numéro pièce d'identité est obligatoire</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="Birthday">Date de Naissance * : </label>
+          <input
+            type="date"
+            formControlName="birthday"
+            class="form-control mt-2"
+            id="Birthday"
+            aria-describedby="emailHelp"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('birthday', 'required')"
+            >Date de Naissance est obligatoire</small
+          >
+        </div>
+        <div class="form-group my-2 col-md-6">
+          <label for="adress">Adresse * : </label>
+          <input
+            type="text"
+            formControlName="address"
+            class="form-control mt-2"
+            id="adress"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Adresse"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('address', 'required')"
+            >Adresse est obligatoire</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="Email">Email * :</label>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control mt-2"
+            id="Email"
+            aria-describedby="emailHelp"
+            placeholder="Entrer email"
+            (change)="isSameEmail()"
+          />
+        </div>
+        <div class="form-group my-2 col-md-6">
+          <label for="EmailValidation">Confirmation Email</label>
+          <input
+            type="email"
+            formControlName="emailValidation"
+            class="form-control mt-2"
+            id="EmailValidation"
+            aria-describedby="emailHelp"
+            placeholder="Retaper email"
+            (change)="isSameEmail()"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('address', 'required')"
+            >Email de confirmation est obligatoire</small
+          >
+          <small class="text-danger" *ngIf="sameEmail"
+            >Les deux emails ne sont pas identique</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="phone">Numéro de téléphone * : </label>
+          <input
+            type="number"
+            formControlName="phone"
+            class="form-control mt-2"
+            id="phone"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Numéro de téléphone"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('phone', 'required')"
+            >Numéro de téléphone est obligatoire</small
+          >
+        </div>
+        <div class="form-group my-2 col-md-6">
+          <label for="matricule"
+            >N° d'immatriculion au registre de commerce * :
+          </label>
+          <input
+            type="number"
+            formControlName="matricule"
+            class="form-control mt-2"
+            id="matricule"
+            aria-describedby="emailHelp"
+            placeholder="Entrer N° d'immatriculion"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('matricule', 'required')"
+            >N° d'immatriculion est obligatoire</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group my-2 col-md-6">
+          <label for="patente">Numéro de patente * : </label>
+          <input
+            type="number"
+            formControlName="patente"
+            class="form-control"
+            id="patente"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Numéro de patente"
+          />
+          <small
+            class="text-danger"
+            *ngIf="isControlHasError('patente', 'required')"
+            >Numéro de patente est obligatoire</small
+          >
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <fieldset class="mt-3 card shadow p-3 mb-3 bg-body rounded">
+    <legend>Piéces jointes</legend>
+    <div class="border border-1 border-primary mb-2" style="width: 20%"></div>
+
+    <div class="flex">
+      <button
+        (click)="addFile()"
+        class="float-end bg-secondary py-2 px-5 fw-bold fs-4 rounded btn"
+      >
+        +
+      </button>
+    </div>
+    <form [formGroup]="fileForm">
+      <div class="row" *ngFor="let in of counter(); let index = index">
+        <div class="flex mt-3" *ngIf="c !== 0">
+          <div
+            class="float-end rounded fs-5 text-danger"
+            style="cursor: pointer"
+            (click)="deleteFile(index)"
+          >
+            x
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="description">Description : </label>
+          <input
+            type="text"
+            formControlName="{{ 'description' + index }}"
+            class="form-control mt-2"
+            id="description"
+            aria-describedby="emailHelp"
+            placeholder="Entrer Description"
+          />
+        </div>
+        <div class="form-group my-2 col-md-6">
+          <label for="file">Fichier :</label>
+          <input
+            class="form-control mt-2"
+            formControlName="{{ 'file' + index }}"
+            (change)="preview($event)"
+            type="file"
+            id="file"
+          />
+        </div>
+      </div>
+    </form>
+  </fieldset>
+  <p class="text-danger" *ngIf="error != '' || error">{{ error }}</p>
+  <div class="my-4 float-end">
+    <button
+      type="submit"
+      class="btn btn-success me-3 shadow-lg rounded"
+      (click)="createAgent()"
+      [disabled]="form.invalid"
+    >
+      Envoyer
+    </button>
+    <button routerLink="/" class="btn btn-warning shadow-lg bg-body rounded">
+      Annuler
+    </button>
+  </div>
+</div>

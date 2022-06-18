@@ -1,0 +1,45 @@
+<div class="modal-body shadow div" >
+   <h5 class="modal-title text"  >Modifier les donnes de l' Agent {{agent.username}} </h5>
+    <form >
+       <div class="form-group d-flex">
+         <div style="width:347px ;">
+            <label for="name">Prénom</label>
+            <input type="text" ngModel="{{agent.username}}" name="first_name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="first_name">
+         
+         </div>
+        </div>
+       <div class="form-group">
+          <label for="name">Naissance</label>
+          <input type="text" ngModel="{{agent.birthday}}" name="birthday" class="form-control" id="name" aria-describedby="emailHelp" placeholder="birthday">
+       </div>
+       <div class="form-group">
+          <label for="name">Email</label>
+          <input type="text" ngModel="{{agent.email}}" name="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="email">
+       </div>
+       <div class="form-group">
+          <label for="name">Telephone</label>
+          <input type="text" ngModel="{{agent?.phoneNumber}}" name="phone_number" class="form-control" id="name" aria-describedby="emailHelp" placeholder="phone_number">
+       </div>
+       <div class="form-group">
+          <label for="name">Adresse</label>
+          <input type="text" ngModel="{{agent.address}}" name="address" class="form-control" id="name" aria-describedby="emailHelp" placeholder="address">
+       </div>
+       <div class="form-group">
+          <label for="name">Password</label>
+          <input type="text" ngModel="{{agent.password}}" name="password" class="form-control" id="name" aria-describedby="emailHelp" placeholder="password">
+       </div>
+       <div class="form-group">
+          <label for="name">Numéro d'Immatriculation</label>
+          <input type="text" ngModel="{{agent.immatriculation}}" name="immatriculation" class="form-control" id="name" aria-describedby="emailHelp" placeholder="numero carte bancaire">
+       </div>
+       <div class="form-group">
+          <label for="name">idCard</label>
+          <input type="text" ngModel="{{agent.idcard}}" name="idCard" class="form-control" id="name" aria-describedby="emailHelp" placeholder="idCard">
+       </div>
+       <div class="modal-footer">
+          <button type="button" id="" (click)="close()" class="btn btn-secondary">Fermer</button>
+          <button (click)="onUpdateAgent(agent)" data-dismiss="modal" class="btn btn-primary" >Enregistrer</button>
+       </div>
+    </form>
+ </div>
+
