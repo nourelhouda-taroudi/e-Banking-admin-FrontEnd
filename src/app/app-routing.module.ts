@@ -1,3 +1,5 @@
+import { AuthGuard } from './features/auth/guards/auth.guard';
+import { AfterAuthGuard } from './features/auth/guards/afterauth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/error/page-not-found/page-not-found.component';
@@ -5,11 +7,13 @@ import { PageNotFoundComponent } from './shared/error/page-not-found/page-not-fo
 const routes: Routes = [
   {
     path: 'auth',
+    canActivate:[AfterAuthGuard],
     loadChildren: () =>
       import('./features/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '',
+    canActivate:[AuthGuard],
     children: [
       {
         path: '',
