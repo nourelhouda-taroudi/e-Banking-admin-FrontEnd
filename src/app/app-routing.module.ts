@@ -4,9 +4,9 @@ import { PageNotFoundComponent } from './shared/error/page-not-found/page-not-fo
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: 'admin',
     loadChildren: () =>
-      import('./features/auth/auth.module').then((m) => m.AuthModule),
+          import('./features/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: '',
@@ -14,10 +14,11 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./features/admin/admin.module').then((m) => m.AdminModule),
+              import('./features/auth/auth.module').then((m) => m.AuthModule),
+        
       },
       {
-        path: 'admin',
+        path: 'auth',
         redirectTo: '',
       },
     ],

@@ -1,0 +1,58 @@
+<div class="shadow mb-5">
+  <h1 style="display: inline;"> E-Bank</h1>
+</div>
+<div class="container border shadow">
+  
+<div class="container mb-5">
+    <div class="row">
+      <div class="col-md-6">
+          <img src="../../../../assets/Images/welcome.jpg" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-md-6 contents text-center">
+        <div class="mb-5 mt-5">
+          <span class="fw-bold font-monospace fs-1" style="color: rgb(0, 174, 255);"> Bienvenu(e) sur l'application</span><br>
+          <span class="fw-bolder font-monospace fs-1">ENSA PAY</span>
+        </div>   
+        <button class="btn btn-outline-success mt-5" type="button" (click)="showChoices()" [hidden]="hide">Se connecter</button>
+        <div [hidden]="!hide">
+          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../../../../assets/Images/admin1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                  <a class="btn btn-danger mt-5" type="submit" href="/auth/login">Vous êtes Admin</a>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../../../assets/Images/agent3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                  <a class="btn btn-warning mt-5" type="submit" href="http://localhost:4202/">Vous êtes Agent</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../../../assets/Images/welcome3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                  <a class="btn btn-primary mt-5" type="submit" href="http://localhost:4203/">Vous êtes Client</a>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+

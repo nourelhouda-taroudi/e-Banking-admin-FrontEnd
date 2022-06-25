@@ -11,7 +11,7 @@ export class JwtInterceptor implements HttpInterceptor {
   private returnUrl?: string;
 
   constructor(private router: Router, private jwtService: JwtService) {
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe((event : any) => {
       if (event instanceof NavigationEnd) {
         this.returnUrl = event.url;
       }
