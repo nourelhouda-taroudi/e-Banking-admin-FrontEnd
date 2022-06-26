@@ -25,7 +25,7 @@ export class AgentService {
 //  agent);
 //   }
 public updateAgent(agent : Agent) : Observable<Agent>{
-  return this.http.put<Agent>(`${this.apiServiceUrl}/agent/update/${agent.id}`,agent);
+  return this.http.put<Agent>(`${this.apiServiceUrl}/agent/${agent.id}`,agent);
 }
 
   public deleteAgent(agentID: number) {

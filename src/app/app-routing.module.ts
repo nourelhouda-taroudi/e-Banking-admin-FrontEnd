@@ -13,10 +13,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate:[AuthGuard],
     children: [
       {
         path: '',
+        canActivate:[AuthGuard],
         loadChildren: () =>
           import('./features/admin/admin.module').then((m) => m.AdminModule),
       },

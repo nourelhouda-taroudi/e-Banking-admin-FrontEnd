@@ -12,6 +12,7 @@ import { AgentService } from 'src/app/core/services/agent.service';
 export class UpdateComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private agentService:AgentService,private router:Router) { }
+  id!:number;
   agents:Agent[]=[];
   agent=new Agent();
   editeAgent:Agent={
@@ -31,8 +32,8 @@ export class UpdateComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((parameterMap) => {
-      const id = Number(parameterMap.get('id'));
-       this.getAgent(id);
+      this.id = Number(parameterMap.get('id'));
+       this.getAgent(this.id);
     });
   }
  
@@ -63,6 +64,7 @@ export class UpdateComponent implements OnInit {
     );
   }
   public onUpdateAgent(agent : Agent): void {
+    agent.id=this.id;
     this.agentService.updateAgent(agent).subscribe(
       (response: Agent) => {
         console.log(response);

@@ -28,7 +28,7 @@ export class JwtService {
   }
 
   remove() {
-    localStorage.removeItem('token');
+    localStorage.clear();
   }
 
   //   decode(payload:any) {

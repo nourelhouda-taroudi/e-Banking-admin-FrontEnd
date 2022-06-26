@@ -54,15 +54,18 @@ export class HomeAdminComponent implements OnInit {
   }
   public deletAgent(id: number) {
     console.log(id);
-    this.agentService.deleteAgent(id).subscribe(
-      (response: void) => {
-        console.log(response);
-        this.getAgents();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+    if(confirm("Vous voulez supprimer l'agent ?")==true){
+      this.agentService.deleteAgent(id).subscribe(
+        (response: void) => {
+          console.log(response);
+          this.getAgents();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+    }
+
   }
   editeAgent(agent: any) {
     this.Agentlist = agent;
@@ -70,6 +73,7 @@ export class HomeAdminComponent implements OnInit {
   }
   logout() {
     this.jwtService.remove();
+    this.router.navigate(['/auth/login']);
   }
 
   onSearchTextEntered(searchedValue: string) {
